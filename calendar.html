@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- adapted from: https://codepen.io/boudra/pen/raErwP -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +8,7 @@
     <style>
         body {
             font-family: monospace;
+            background-color: #fff;
         }
 
         .wrapper {
@@ -27,15 +27,16 @@
             border-collapse: collapse;
             table-layout: fixed;
             position: relative;
-            background-color: #fff;
+            background-color: #451C45;
             border: 2px solid #451C45;
             box-shadow: 2px 2px 1px 0px #451C45;
             border-radius: 5px;
+            color: #DB53D9;
         }
 
         .month {
-            background-color: #000;
-            color: #fff;
+            background-color: #451C45;
+            color: #DB53D9;
             font-size: 1.5em;
         }
         .year {
@@ -43,17 +44,18 @@
             font-weight: normal;
             display: block;
             text-shadow: none;
-            color: #fff;
+            color: #DB53D9;
         }
 
         .day-header {
             background-color: #451C45;
-            color: #fff;
+            color: #DB53D9;
         }
 
-        td,th {
+        td, th {
             text-align: center;
-            background-color: #fff;
+            background-color: #451C45;
+            color: #DB53D9;
         }
         th {
             padding: 10px;
@@ -61,42 +63,47 @@
 
         td {
             padding: 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(219,83,217,0.3);
         }
         td>span {
-            color: rgb(0, 0, 0);
+            color: #DB53D9;
             padding: 10px;
             display: block;
             border: 2px solid transparent;
             transition: border 0.3s ease;
         }
 
+        /* Today highlight */
         td.avui>span {
             font-weight: bold;
-            background-color: #000000;
-            color: #fff;
+            background-color: #fff;
+            color: #451C45;
+            border-radius: 4px;
         }
+
         td.fora > span {
-            opacity: 0.2;
+            opacity: 0.4;
         }
 
         .boto-next, .boto-prev {
-            background: #000;
-            color: #fff;
+            background: #451C45;
+            color: #DB53D9;
             font-family: inherit;
-            border: none;
-            font-size: 25px;
+            border: 2px solid #DB53D9;
+            font-size: 20px;
             font-weight: bold;
-            padding: 2px 10px 5px 10px;
-            line-height: 1px;
             height: 30px;
             width: 30px;
             position: absolute;
             top: 15px;
             cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .boto-next { right: 10px; padding-left: 13px; }
-        .boto-prev { left: 10px; padding-right: 13px; }
+        .boto-next { right: 10px; }
+        .boto-prev { left: 10px; }
     </style>
 </head>
 <body>
@@ -204,25 +211,3 @@
                     }
 
                     actual.setDate(actual.getDate() + 1);
-                    fila.appendChild(cela);
-                }
-                e.appendChild(fila);
-            }
-
-            setTimeout(function() {
-                e.className = 'actiu';
-                original.className = 'inactiu';
-            }, 20);
-
-            setTimeout(function() {
-                var inactius = document.getElementsByClassName('inactiu');
-                while (inactius.length > 0) {
-                    inactius[0].parentNode.removeChild(inactius[0]);
-                }
-            }, 500);
-        }
-
-        calendar(document.getElementById('calendar'), new Date());
-    </script>
-</body>
-</html>
