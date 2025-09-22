@@ -8,27 +8,29 @@
   <style>
     body {
       font-family: monospace;
+      margin: 0;
+      padding: 0;
     }
 
     .wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      min-height: 100%;
+      display: block;
+      margin: 0;
+      padding: 0;
     }
 
     #calendar {
-      margin: 0 auto;
+      margin: 0;
       font-size: 14px;
+      width: 100%;
     }
 
     table {
       border-collapse: collapse;
       table-layout: fixed;
-      position: absolute;
+      width: 100%;
+      position: relative;
       background-color: #451C45; /* основний */
-      border: 2px solid #451C45; /* основний */
+      border: 2px solid #451C45;
       box-shadow: 2px 2px 1px 0px #DB53D9; /* вторинний */
       border-radius: 5px;
       color: #DB53D9; /* вторинний */
@@ -49,8 +51,8 @@
     }
 
     .day-header {
-      background-color: #7A3A76; /* приглушений темно-рожевий */
-      color: #DB53D9;
+  background-color: transparent; /* прозорий фон */
+  color: #DB53D9; /* вторинний */
     }
 
     td, th {
@@ -120,7 +122,7 @@
       'July','August','September','October','November','December'
     ];
 
-    // Починається з Monday
+    // Monday first
     var days_abr = ['Mo','Tu','We','Th','Fr','Sa','Su'];
 
     Number.prototype.pad = function(num) {
